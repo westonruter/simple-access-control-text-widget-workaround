@@ -1,11 +1,29 @@
 <?php
-/*
-Plugin Name: Simple Access Control Workaround
-Plugin URI: https://core.trac.wordpress.org/ticket/41540
-Description: Workaround for Simple Access Control plugin not extending Text widget properly.
-Author: Weston Ruter, XWP
-Author URI: https://make.xwp.co/
-*/
+/**
+ * Plugin Name: Simple Access Control Logggedin Text Widget Workaround
+ * Plugin URI: https://core.trac.wordpress.org/ticket/41540
+ * Description: Workaround for Simple Access Control plugin not extending Text widget properly.
+ * Author: Weston Ruter, XWP
+ * Author URI: https://make.xwp.co/
+ * Version: 0.1.0
+ * License: GPLv2+
+ *
+ * Copyright (c) 2017 XWP (https://xwp.co/)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License, version 2 or, at
+ * your discretion, any later version, as published by the Free
+ * Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ */
 
 require_once ABSPATH . '/wp-includes/widgets/class-wp-widget-text.php';
 
@@ -49,6 +67,9 @@ function simple_access_control_workaround_prevent_faulty_widget_registration() {
 }
 add_action( 'plugins_loaded', 'simple_access_control_workaround_prevent_faulty_widget_registration' );
 
+/**
+ * Register the a fixed "Logggedin Text" widget.
+ */
 function simple_access_control_workaround_register_widget() {
 	register_widget( 'Logggedin_Widget_Text_Fixed' );
 }
